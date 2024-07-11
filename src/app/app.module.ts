@@ -10,6 +10,9 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { ProductShowComponent } from './components/product-show/product-show.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,9 @@ import { CategoriesListComponent } from './components/categories-list/categories
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
