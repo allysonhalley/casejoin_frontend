@@ -8,7 +8,7 @@ import {Product} from "../models/product.model";
 })
 export class ProductService {
 
-  private readonly API = "http://localhost:8080/products/";
+  private readonly API = "http://localhost:8081/products/";
 
   constructor(private _http: HttpClient) { }
 
