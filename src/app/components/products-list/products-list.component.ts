@@ -44,6 +44,18 @@ export class ProductsListComponent implements OnInit{
     this.currentIndex = index;
   }
 
+  removeProduct(id: any): void {
+    this.productService.delete(id)
+      .subscribe({
+        next: data => {
+          this.retrieveProducts();
+          this.ngOnInit();
+          console.log(data);
+        },
+        error: err => console.log(err)
+      });
+  }
+
   removeAllProducts(): void {
     this.productService.deleteAll()
       .subscribe({
