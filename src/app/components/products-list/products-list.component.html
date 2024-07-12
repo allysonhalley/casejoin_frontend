@@ -1,1 +1,62 @@
-<p>products-list works!</p>
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchProductByName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Categories List</h4>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (product of products; track product.id; let i = $index) {
+          <tr>
+            <th scope="row">{{ i }}</th>
+            <td
+              [class.active]="i == currentIndex"
+              (click)="setActiveProduct(product, i)"
+            >
+              {{ product.name }}
+            </td>
+            <td
+              [class.active]="i == currentIndex"
+              (click)="setActiveProduct(product, i)"
+            >
+              {{ product.category?.name }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllProducts()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-product-show
+      [viewMode]="true"
+      [currentProduct]="currentProduct">
+    </app-product-show>
+  </div>
+</div>

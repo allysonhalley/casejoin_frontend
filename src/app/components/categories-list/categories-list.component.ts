@@ -43,6 +43,18 @@ export class CategoriesListComponent implements OnInit {
     this.currentIndex = index;
   }
 
+  removeCategory(id: any): void {
+    this.categoryService.delete(id)
+      .subscribe({
+        next: data => {
+          this.retrieveCategories();
+          this.ngOnInit();
+          console.log(data);
+        },
+        error: err => console.log(err)
+      });
+  }
+
   removeAllCategories(): void {
     this.categoryService.deleteAll()
     .subscribe({

@@ -21,7 +21,7 @@ export class CategoryService {
   }
 
   create(data: any): Observable<Category> {
-    return this._http.post(categoryUrl, data);
+    return this._http.post<Category>(categoryUrl, data);
   }
 
   update(id: any, data: any): Observable<any> {

@@ -6,7 +6,7 @@
       {{ currentCategory.name }}
     </div>
     <div>
-      <label><strong>Name:</strong></label>
+      <label><strong>Description:</strong></label>
       {{ currentCategory.description }}
     </div>
 
@@ -34,7 +34,7 @@
             type="text"
             class="form-control"
             id="description"
-            [(ngModel)]="currentCategory.name"
+            [(ngModel)]="currentCategory.description"
             name="description"/>
         </div>
       </form>
